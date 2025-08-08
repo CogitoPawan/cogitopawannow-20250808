@@ -1,0 +1,5 @@
+Flask==2.0.2
+Flask-SQLAlchemy==2.5.1
+psycopg2==2.9.1
+numpy==1.21.2
+kafka-python==2.0.2

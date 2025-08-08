@@ -1,0 +1,20 @@
+import unittest
+from backend.app.main import app
+
+class TestRoutes(unittest.TestCase):
+    def setUp(self):
+        self.app = app.test_client()
+        self.app.testing = True
+
+    def test_health_check(self):
+        response = self.app.get('/api/health')
+        self.assertEqual(response.status_code, 200)
+        self.assertIn(b'healthy', response.data)
+
+    def test_anomaly_detection_route(self):
+        response = self.app.post('/api/detect')
+        self.assertEqual(response.status_code, 200)
+        # Additional response validation can be added here
+
+if __name__ == '__main__':
+    unittest.main()
